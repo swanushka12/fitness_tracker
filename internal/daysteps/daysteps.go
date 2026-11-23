@@ -29,7 +29,7 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 		return fmt.Errorf("не удалось разобрать количество шагов: %w", err)
 	}
 	if steps <= 0 {
-		return errors.New("количество шагов должно быть больше нуля")
+		return errors.New("количество шагов должно быть больше 0")
 	}
 
 	duration, err := time.ParseDuration(parts[1])
@@ -37,7 +37,7 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 		return fmt.Errorf("не удалось разобрать длительность: %w", err)
 	}
 	if duration <= 0 {
-		return errors.New("длительность прогулки должна быть больше нуля")
+		return errors.New("длительность прогулки должна быть больше 0")
 	}
 
 	ds.Steps = steps
